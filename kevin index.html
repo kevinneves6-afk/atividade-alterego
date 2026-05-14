@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sc_kevin - Meu Alter Ego</title>
+    <style>
+        /* Reset básico e configurações globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container principal usando CSS Grid */
+        .sc_kevin_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título principal */
+        .sc_kevin_titulo {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Grid dos cards usando CSS Grid */
+        .sc_kevin_cards_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Estilo base dos cards */
+        .sc_kevin_card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            text-align: center;
+        }
+
+        /* Card especial do perfil com foto */
+        .sc_kevin_card_perfil {
+            grid-column: span 2;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .sc_kevin_foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #667eea;
+            transition: all 0.5s ease;
+        }
+
+        /* Botão de transformação destacado */
+        .sc_kevin_btn_transformar {
+            display: block;
+            width: 250px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .sc_kevin_btn_transformar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.6);
+        }
+
+        /* ESTILOS DA VERSÃO HERÓI - MUDANÇA DRÁSTICA DE CORES (VERMELHO E AZUL DO ARANHA) */
+        .sc_kevin_hero_mode body {
+            background: linear-gradient(135deg, #e60000 0%, #1a237e 100%);
+        }
+
+        .sc_kevin_hero_mode .sc_kevin_container {
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+        }
+
+        .sc_kevin_hero_mode .sc_kevin_titulo {
+            color: #fff;
+            text-shadow: 0 0 20px #ff0000;
+        }
+
+        .sc_kevin_hero_mode .sc_kevin_card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            color: white;
+        }
+
+        .sc_kevin_hero_mode .sc_kevin_foto {
+            border-color: #ff0000;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+
+        /* RESPONSIVIDADE - Media Query para telas pequenas */
+        @media (max-width: 768px) {
+            /* Em telas pequenas, todos os cards ocupam largura total e se empilham verticalmente */
+            .sc_kevin_cards_grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .sc_kevin_card_perfil {
+                grid-column: span 1;
+            }
+            
+            .sc_kevin_titulo {
+                font-size: 2em;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
+
+        /* RESPONSIVIDADE - Media Query para telas muito pequenas */
+        @media (max-width: 480px) {
+            /* Ajustes finos para smartphones pequenos */
+            .sc_kevin_foto {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .sc_kevin_card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sc_kevin_container">
+        <!-- Título principal -->
+        <h1 class="sc_kevin_titulo" id="sc_kevin_titulo">Kevin das Neves dos Santos</h1>
+        
+        <!-- Grid de cards usando CSS Grid -->
+        <div class="sc_kevin_cards_grid">
+            <!-- Card do Perfil com foto -->
+            <div class="sc_kevin_card sc_kevin_card_perfil">
+                <img id="sc_kevin_foto" class="sc_kevin_foto" 
+                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                     alt="Foto de Kevin">
+                <h2 id="sc_kevin_nome">Kevin das Neves dos Santos</h2>
+                <p id="sc_kevin_idade">21 anos</p>
+            </div>
+
+            <!-- Card Time do Coração -->
+            <div class="sc_kevin_card">
+                <h3>⚽ Time do Coração</h3>
+                <p id="sc_kevin_time">Palmeiras 🟢⚪</p>
+            </div>
+
+            <!-- Card Comida Predileta -->
+            <div class="sc_kevin_card">
+                <h3>🍔 Comida Predileta</h3>
+                <p id="sc_kevin_comida">Hambúrguer artesanal e Açaí</p>
+            </div>
+
+            <!-- Card Descrição/Habilidades -->
+            <div class="sc_kevin_card">
+                <h3>👨‍💻 Sobre Mim</h3>
+                <p id="sc_kevin_descricao">Desenvolvedor web apaixonado por games e tecnologia. Gosto de criar aplicações interativas e jogar no meu tempo livre!</p>
+            </div>
+
+            <!-- Card Habilidades -->
+            <div class="sc_kevin_card">
+                <h3>🕷️ Habilidades</h3>
+                <p id="sc_kevin_habilidades">Sinuca, Basquete, Academia e Video game</p>
+            </div>
+
+            <!-- Card Sonho -->
+            <div class="sc_kevin_card">
+                <h3>🚀 Sonho</h3>
+                <p id="sc_kevin_sonho">Criar o próximo grande game AAA da indústria!</p>
+            </div>
+        </div>
+
+        <!-- Botão de Transformação -->
+        <button class="sc_kevin_btn_transformar" id="sc_kevin_btn_transformar">
+            ✨ Transformar! ✨
+        </button>
+    </div>
+
+    <script>
+        // Dados da identidade civil (Kevin)
+        const sc_kevin_dados_civil = {
+            titulo: "Kevin das Neves dos Santos",
+            nome: "Kevin das Neves dos Santos",
+            idade: "21 anos",
+            foto: "https://images.ctfassets.net/3mv54pzvptwz/55YLwKPDnRXkqMBITRpWbC/0c2aefc04afa455c20e9ca0d209698e0/53174188191_42d4c831ae_o.jpg",
+            time: "Palmeiras 🟢⚪",
+            comida: "Hambúrguer artesanal e Açaí",
+            descricao: "Desenvolvedor web apaixonado por games e tecnologia. Gosto de criar aplicações interativas e jogar no meu tempo livre!",
+            habilidades: "Sinuca, Basquete, Academia e Video game",
+            sonho: "Criar o próximo grande game AAA da indústria!"
+        };
+
+        // Dados do Super-herói (Homem-Aranha)
+        const sc_kevin_dados_hero = {
+            titulo: "🕷️ Homem-Aranha",
+            nome: "Peter Parker (Homem-Aranha)",
+            idade: "25 anos",
+            foto: "https://ovicio.com.br/wp-content/uploads/2023/10/20231003-spider-man-oliver-barrett-bottle-1024x1024.jpg",
+            time: "Vingadores 🕸️",
+            comida: "Pizza de pepperoni + Churros",
+            descricao: "Herói adolescente com agilidade sobre-humana, teias e sentido aranha. 'Um grande poder traz grandes responsabilidades!'",
+            habilidades: "Sentido Aranha, Teias, Superforça, Agilidade, Escalada nas paredes",
+            sonho: "Proteger Nova York e equilibrar vida de herói com vida normal"
+        };
+
+        // Variável de controle para alternar entre modos
+        let sc_kevin_ehHeroi = false;
+
+        // Função principal que alterna entre identidade civil e herói
+        function sc_kevin_mudaIdentidade() {
+            /*
+                Esta função é responsável por alternar entre a identidade civil e a identidade do herói.
+                Ela verifica o estado atual (sc_kevin_ehHeroi) e troca todos os conteúdos dos elementos
+                manipulando o DOM diretamente. Também altera a classe do body para mudança visual drástica.
+            */
+            
+            const elementos = {
+                titulo: document.getElementById('sc_kevin_titulo'),
+                nome: document.getElementById('sc_kevin_nome'),
+                idade: document.getElementById('sc_kevin_idade'),
+                foto: document.getElementById('sc_kevin_foto'),
+                time: document.getElementById('sc_kevin_time'),
+                comida: document.getElementById('sc_kevin_comida'),
+                descricao: document.getElementById('sc_kevin_descricao'),
+                habilidades: document.getElementById('sc_kevin_habilidades'),
+                sonho: document.getElementById('sc_kevin_sonho')
+            };
+
+            const dados = sc_kevin_ehHeroi ? sc_kevin_dados_civil : sc_kevin_dados_hero;
+            
+            // Atualiza todos os elementos com os novos dados
+            Object.keys(elementos).forEach(key => {
+                if (elementos[key]) {
+                    elementos[key].textContent = dados[key];
+                }
+            });
+
+            // Muda a foto (especial por ser img src)
+            elementos.foto.src = dados.foto;
+
+            // Alterna classe do body para mudança visual drástica
+            document.body.classList.toggle('sc_kevin_hero_mode', !sc_kevin_ehHeroi);
+
+            // Inverte o estado para próxima transformação
+            sc_kevin_ehHeroi = !sc_kevin_ehHeroi;
+
+            // Feedback visual no botão
+            const botao = document.getElementById('sc_kevin_btn_transformar');
+            botao.textContent = sc_kevin_ehHeroi ? '👤 Voltar ao Normal' : '🕷️ Transformar!';
+        }
+
+        // Adiciona event listener ao botão de transformação
+        document.getElementById('sc_kevin_btn_transformar').addEventListener('click', sc_kevin_mudaIdentidade);
+
+        // Função de inicialização (opcional, para futuros aprimoramentos)
+        function sc_kevin_inicializa() {
+            /*
+                Função de inicialização da página. Pode ser expandida para carregar
+                dados dinamicamente ou configurar animações futuras.
+            */
+            console.log('Alter Ego de Kevin inicializado com sucesso!');
+        }
+
+        // Chama a inicialização quando a página carrega
+        window.addEventListener('load', sc_kevin_inicializa);
+    </script>
+</body>
+</html>
